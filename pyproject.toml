@@ -9,7 +9,7 @@ description = "Trade a formula for a model matrix"
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
-authors = [{ name = "wayne", email = "wayne@example.com" }]
+authors = [{ name = "Alex Hallam", email = "alexhallam628@gmail.com" }]
 keywords = [
     "statistics",
     "formula",

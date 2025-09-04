@@ -5,14 +5,19 @@ build-backend = "maturin"
 [project]
 name = "wayne"
 version = "0.1.0"
-description = "Trade a formula for a model matrix - Convert statistical formulas into model matrices using Polars DataFrames"
+description = "Trade a formula for a model matrix"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
-authors = [
-    {name = "wayne", email = "wayne@example.com"}
+license = { text = "MIT" }
+authors = [{ name = "wayne", email = "wayne@example.com" }]
+keywords = [
+    "statistics",
+    "formula",
+    "model-matrix",
+    "polars",
+    "regression",
+    "design-matrix",
 ]
-keywords = ["statistics", "formula", "model-matrix", "polars", "regression", "design-matrix"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",

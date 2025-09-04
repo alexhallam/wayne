@@ -1,15 +1,23 @@
 <h1 align="center">wayne</h1>
 
 <p align="center">
-  <img src="img/wyane_img.svg" alt="logo" width="240">
+  <img src="img/wayne_img.svg" alt="logo" width="240">
 </p>
 
 ---
-<p align="center">Trade a formula for a model matrix</p>
+<p align="center">a formula to model matrix</p>
 
 **Formula to Model Matrix in One Function Call**
 
 `wyane` is a Python package that converts statistical formulas into model matrices using Polars DataFrames. It does one thing: takes a formula and a DataFrame, returns a model matrix.
+
+## Installation
+
+```bash
+uv pip install wayne-trade
+# or
+pip install wayne-trade
+```
 
 ## Usage
 

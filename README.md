@@ -1,7 +1,7 @@
 <h1 align="center">wayne</h1>
 
 <p align="center">
-  <img src="img/wayne_img.svg" alt="logo" width="240">
+  <img src="img/wayne.svg" alt="logo" width="240">
 </p>
 
 ---

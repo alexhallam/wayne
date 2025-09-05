@@ -5,7 +5,11 @@
 </p>
 
 ---
-<p align="center">a formula to model matrix</p>
+<p align="center">trade a formula to model matrix</p>
+
+---
+
+<p align="center">"Greet each day with a smile, so it doesn't know what you're planning on doing to it." - Wayne</p>
 
 **Formula to Model Matrix in One Function Call**
 

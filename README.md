@@ -11,6 +11,8 @@
 
 <p align="center">"Greet each day with a smile, so it doesn't know what you're planning on doing to it." - Wayne</p>
 
+---
+
 **Formula to Model Matrix in One Function Call**
 
 `wyane` is a Python package that converts statistical formulas into model matrices using Polars DataFrames. It does one thing: takes a formula and a DataFrame, returns a model matrix.

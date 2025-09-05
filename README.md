@@ -4,10 +4,10 @@
   <img src="img/wayne.svg" alt="logo" width="240">
 </p>
 
----
-<p align="center">trade a formula to model matrix</p>
 
----
+<h2 align="center">trade a formula to model matrix</h2>
+
+
 
 <p align="center">"Greet each day with a smile, so it doesn't know what you're planning on doing to it." - Wayne</p>
 

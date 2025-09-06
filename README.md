@@ -1,11 +1,17 @@
 <h1 align="center">wayne</h1>
 
 <p align="center">
-  <img src="img/wayne_img.svg" alt="logo" width="240">
+  <img src="img/wayne.svg" alt="logo" width="240">
 </p>
 
+
+<h2 align="center">trade a formula to model matrix</h2>
+
+
+
+<p align="center">"Greet each day with a smile, so it doesn't know what you're planning on doing to it." - Wayne</p>
+
 ---
-<p align="center">a formula to model matrix</p>
 
 **Formula to Model Matrix in One Function Call**
 

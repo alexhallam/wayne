@@ -2,10 +2,10 @@
 # Development install script for wayne package with uv
 
 # Clean previous build
-rm -rf target/wheels/wayne_trade-*
+rm -rf dist/
 
 # Build the package
-maturin build
+uv build
 
-# Publish with uv
-uv publish target/wheels/wayne_trade-0.1.1-*.whl
+# Install in development mode
+uv pip install -e .

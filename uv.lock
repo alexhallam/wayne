@@ -224,10 +224,10 @@ wheels = [
 
 [[package]]
 name = "fiasto-py"
-version = "0.1.1"
+version = "0.1.4"
 source = { registry = "https://pypi.org/simple" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fe/eb/5778781bc791989f967c340545f11770a3a5ec5b3206e89f486bcc94a872/fiasto_py-0.1.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:f8e419ddbfb5054ab3177697fd93bd9cfb8d7fefedd3211f896061137214e053", size = 287847 },
+    { url = "https://files.pythonhosted.org/packages/43/c0/9b6240ffdda6b12b1bbad7038a846a9a7a822a7d7de597f3237aae0abd5f/fiasto_py-0.1.4-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:079ee52330e7b3fc6f0dc8903bf0ed43e2f09e0cc042469bee20c82e62e8b294", size = 292069 },
 ]
 
 [[package]]
@@ -726,7 +726,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "fiasto-py", specifier = ">=0.1.1" },
+    { name = "fiasto-py", specifier = ">=0.1.4" },
     { name = "numpy", specifier = ">=1.21.0" },
     { name = "polars", specifier = ">=1.8.2" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0.0" },

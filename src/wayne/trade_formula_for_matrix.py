@@ -46,29 +46,21 @@ def trade_formula_for_matrix(df: pl.DataFrame, formula: str) -> pl.DataFrame:
                 else:
                     result_df = result_df.with_columns(df[var_name].alias(var_name))
     
-    # Then, add interaction terms using the generated_columns with _z suffix
+    # Then, add interaction terms - fiasto-py 0.1.4 creates them as separate variables
     for var_name, var_info in parsed["columns"].items():
-        if ("FixedEffect" in var_info["roles"] or "Identity" in var_info["roles"]) and var_name != response_var:
-            generated_columns = var_info.get("generated_columns", [])
-            for gen_col in generated_columns:
-                if gen_col != var_name and gen_col.endswith("_z"):
-                    # This is an interaction term - create it from the interaction info
-                    interactions = var_info.get("interactions", [])
-                    for interaction in interactions:
-                        if "with" in interaction:
-                            with_vars = interaction.get("with", [])
-                            if len(with_vars) > 0:
-                                # Create the interaction term
-                                variables = [var_name] + with_vars
-                                variables_sorted = sorted(variables)
-                                
-                                # Create interaction expression
-                                interaction_expr = pl.col(variables_sorted[0])
-                                for var in variables_sorted[1:]:
-                                    interaction_expr = interaction_expr * pl.col(var)
-                                
-                                result_df = result_df.with_columns(interaction_expr.alias(gen_col))
-                                break  # Only process the first matching interaction
+        if "InteractionTerm" in var_info["roles"] and var_name != response_var:
+            # For interaction terms, we need to create them from the component variables
+            # The variable name like "wt_hp" tells us which variables to multiply
+            if "_" in var_name:
+                # Split the interaction term name to get component variables
+                component_vars = var_name.split("_")
+                if all(var in df.columns for var in component_vars):
+                    # Create the interaction expression
+                    interaction_expr = pl.col(component_vars[0])
+                    for var in component_vars[1:]:
+                        interaction_expr = interaction_expr * pl.col(var)
+                    
+                    result_df = result_df.with_columns(interaction_expr.alias(var_name))
     
     # Add transformations (polynomials, etc.)
     for var_name, var_info in parsed["columns"].items():

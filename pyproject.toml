@@ -8,7 +8,7 @@ version = "0.1.4"
 description = "Formula to model matrix converter"
 requires-python = ">=3.8"
 authors = [{ name = "Alex Hallam", email = "alexhallam628@gmail.com" }]
-dependencies = ["polars>=1.8.2", "numpy>=1.21.0", "fiasto-py>=0.1.1"]
+dependencies = ["polars>=1.8.2", "numpy>=1.21.0", "fiasto-py>=0.1.4"]
 license = { text = "MIT" }
 readme = "README.md"
 

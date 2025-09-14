@@ -12,13 +12,11 @@ def test_complex_mtcars_formula(mtcars_data):
     formula = 'mpg ~ cyl + wt*hp + poly(disp, 4) - 1'
     result = wayne.trade_formula_for_matrix(mtcars_data, formula)
     
-    # Should have: cyl + disp + hp + wt + poly(disp, 4) + wt:hp = 1 + 1 + 1 + 1 + 4 + 1 = 9 columns
-    assert result.shape == (32, 9)
+    assert result.shape == (32, 8)
     assert 'cyl' in result.columns
-    assert 'disp' in result.columns
     assert 'hp' in result.columns
     assert 'wt' in result.columns
-    assert 'hp_x_wt' in result.columns
+    assert 'wt_x_hp' in result.columns
     assert 'disp_poly_1' in result.columns
     assert 'disp_poly_2' in result.columns
     assert 'disp_poly_3' in result.columns

@@ -47,7 +47,7 @@ print(model_matrix)
 ```
 
 <p align="center">
-  <img src="img/wayne_output.png" alt="logo" width="640">
+  <img src="img/mtcars_output.png" alt="logo" width="640">
 </p>
 
 ## Features

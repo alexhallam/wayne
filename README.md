@@ -53,6 +53,7 @@ print(model_matrix)
 ## Features
 
 - **Single Function**: `trade_formula_for_matrix(df, formula)`
+- **Formula Parsing**: `speak_fiasto(formula)` for direct access to fiasto-py parsing
 - **Polars Integration**: Works with Polars DataFrames
 - **R-Style Formulas**: Supports R/Wilkinson notation
 - **Fast Parsing**: Rust + fiasto for formula parsing
@@ -70,6 +71,33 @@ Wayne supports R-style statistical formulas:
 - **Intercept control**: `y ~ x - 1` (removes intercept)
 - **Complex formulas**: `y ~ x + z + poly(w, 3) + x:z - 1`
 
+## Formula Parsing with speak_fiasto
+
+Wayne also provides direct access to fiasto-py's formula parsing functionality through the `speak_fiasto()` function. This is useful when you want to inspect how a formula is parsed without creating a model matrix:
+
+```python
+import wayne
+
+# Parse a formula and inspect its structure
+parsed = wayne.speak_fiasto("mpg ~ cyl + wt*hp + poly(disp, 3)")
+
+# Check what variables were detected
+print(parsed["columns"])
+
+# Check formula metadata (e.g., has intercept)
+print(parsed["metadata"])
+
+# Inspect variable roles
+for var_name, var_info in parsed["columns"].items():
+    print(f"{var_name}: {var_info['roles']}")
+```
+
+This function is particularly helpful for:
+- **Understanding formula parsing**: See how fiasto-py interprets your formula
+- **Debugging formulas**: Check if variables are parsed as expected
+- **Building tools**: Use fiasto parsing in your own workflow without importing fiasto-py directly
+- **Avoiding dependency issues**: Access fiasto-py functionality without dealing with maturin/pyo3 setup
+
 ## Examples
 
 See the `examples/` directory for complete examples:
@@ -80,6 +108,9 @@ uv run python examples/final_example.py
 
 # Single function demo
 uv run python examples/single_function_example.py
+
+# Formula parsing with speak_fiasto
+uv run python examples/speak_fiasto_example.py
 ```
 
 ## What You Get

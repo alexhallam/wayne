@@ -7,6 +7,39 @@ import fiasto_py
 from typing import Dict, Any, List
 
 
+def speak_fiasto(formula: str) -> Dict[str, Any]:
+    """
+    Parse a statistical formula using fiasto-py and return the parsed structure.
+    
+    This function provides direct access to fiasto-py's formula parsing functionality
+    without requiring users to import fiasto-py directly. It's useful for users who
+    want to inspect the parsed formula structure or use fiasto parsing in their own
+    workflow without dealing with fiasto-py's dependencies.
+    
+    Args:
+        formula: Statistical formula string (e.g., "y ~ x1 + x2*x3 + poly(x4, 2)")
+        
+    Returns:
+        Dict containing the parsed formula structure from fiasto-py, including:
+        - columns: Dictionary of variables and their metadata
+        - metadata: Formula-level metadata (e.g., has_intercept)
+        - all_generated_columns_formula_order: Column ordering information
+        
+    Examples:
+        >>> import wayne
+        >>> parsed = wayne.speak_fiasto("y ~ x1 + x2*x3")
+        >>> print(parsed["columns"])
+        >>> print(parsed["metadata"])
+        
+    Raises:
+        ValueError: If the formula is invalid or cannot be parsed
+    """
+    try:
+        return fiasto_py.parse_formula(formula)
+    except Exception as e:
+        raise ValueError(f"Failed to parse formula '{formula}': {str(e)}") from e
+
+
 def trade_formula_for_matrix(df: pl.DataFrame, formula: str) -> pl.DataFrame:
     """
     Convert a statistical formula to a model matrix using fiasto-py.

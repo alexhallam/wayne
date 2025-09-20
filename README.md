@@ -1,5 +1,4 @@
 [![PyPI version](https://img.shields.io/pypi/v/wayne-trade.svg?cacheSeconds=600)](https://pypi.org/project/wayne-trade/)
-[![Python versions](https://img.shields.io/pypi/pyversions/wayne-trade.svg)](https://pypi.org/project/wayne-trade/) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <h1 align="center">wayne</h1>

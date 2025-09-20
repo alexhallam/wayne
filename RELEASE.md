@@ -68,6 +68,10 @@ You can also trigger releases manually:
 
 **Important**: wayne requires Python 3.13+ due to fiasto-py dependency requirements. The GitHub Actions workflow uses Python 3.13 to ensure compatibility.
 
+## 🖥️ Platform Requirements
+
+**Note**: The release workflow runs on `macos-latest` because `fiasto-py==0.1.4` only has wheels for macOS ARM64. This ensures compatibility with the fiasto-py dependency during the build process.
+
 ## 📋 Version Format
 
 The workflow expects CHANGELOG entries in this format:

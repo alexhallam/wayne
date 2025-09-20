@@ -23,6 +23,8 @@
 
 ## Installation
 
+**Requirements**: Python 3.13+ (due to fiasto-py dependency)
+
 ```bash
 uv pip install wayne-trade
 # or

@@ -64,6 +64,10 @@ You can also trigger releases manually:
 2. Click "Run workflow"
 3. Select the main branch and click "Run workflow"
 
+## 🐍 Python Version Requirements
+
+**Important**: wayne requires Python 3.13+ due to fiasto-py dependency requirements. The GitHub Actions workflow uses Python 3.13 to ensure compatibility.
+
 ## 📋 Version Format
 
 The workflow expects CHANGELOG entries in this format:

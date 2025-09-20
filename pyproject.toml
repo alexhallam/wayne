@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "wayne-trade"
 version = "0.1.6"
 description = "Formula to model matrix converter"
-requires-python = ">=3.8"
+requires-python = ">=3.13"
 authors = [{ name = "Alex Hallam", email = "alexhallam628@gmail.com" }]
 dependencies = ["polars>=1.8.2", "numpy>=1.21.0", "fiasto-py>=0.1.4"]
 license = { text = "MIT" }
@@ -28,11 +28,6 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Rust",
     "Topic :: Scientific/Engineering :: Mathematics",

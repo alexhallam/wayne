@@ -1,4 +1,4 @@
-## [0.1.4] - 2025-01-09
+## [0.1.5] - 2025-01-09
 
 ### Fixed
 - Interaction term naming now matches fiasto-py 0.1.4 output exactly
@@ -8,6 +8,11 @@
 ### Changed
 - Updated to use fiasto-py 0.1.4 for improved interaction term handling
 - Interaction terms are now processed as separate variables with `InteractionTerm` role
+
+## [0.1.4] - 2025-01-09
+
+### Changed
+- Interactions and ordering
 
 ## [0.1.3] - 2025-09-06
 

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wayne-trade"
-version = "0.1.4"
+version = "0.1.5"
 description = "Formula to model matrix converter"
 requires-python = ">=3.8"
 authors = [{ name = "Alex Hallam", email = "alexhallam628@gmail.com" }]

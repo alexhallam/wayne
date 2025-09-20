@@ -1,3 +1,11 @@
+## [0.1.6] - 2025-09-20
+
+### Fixed
+- **Interaction term naming now matches fiasto-py 0.1.4 output exactly**
+- Interaction terms now use proper naming convention (e.g., `wt_hp` instead of `wt_z`)
+
+
+
 ## [0.1.5] - 2025-09-20
 
 ### Added

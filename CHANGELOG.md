@@ -1,3 +1,9 @@
+## [0.1.8] - 2025-09-20
+
+### Fixed
+
+Bumping for workflow testing again
+
 ## [0.1.7] - 2025-09-20
 
 Bumping for workflow testing

@@ -704,7 +704,7 @@ wheels = [
 
 [[package]]
 name = "wayne-trade"
-version = "0.1.4"
+version = "0.1.5"
 source = { editable = "." }
 dependencies = [
     { name = "fiasto-py" },

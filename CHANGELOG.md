@@ -1,5 +1,10 @@
 ## [0.1.5] - 2025-01-09
 
+### Added
+- **Wayne Speak Fiasto**: Clean interface to fiasto-py parsing functionality
+  - `wayne.speak_fiasto()` - Parse formulas and get raw fiasto-py results
+  - Users can now access fiasto parsing without directly importing fiasto-py
+
 ### Fixed
 - Interaction term naming now matches fiasto-py 0.1.4 output exactly
 - Removed custom `_z` suffix logic that was inconsistent with fiasto-py naming

@@ -50,6 +50,20 @@ print(model_matrix)
   <img src="img/mtcars_output.png" alt="logo" width="640">
 </p>
 
+## Wayne Speak Fiasto
+
+Wayne provides a clean interface to fiasto-py's parsing functionality without requiring users to directly import fiasto-py and deal with its maturin/pyo3 complexity:
+
+```python
+import wayne
+
+# Parse a formula to get detailed structure
+result = wayne.speak_fiasto("mpg ~ cyl + wt*hp + poly(disp, 4) - 1")
+print(result['columns'].keys())  # All variables and their metadata
+print(result['metadata']['has_intercept'])  # Formula metadata
+print(result['all_generated_columns'])  # All generated column names
+```
+
 ## Features
 
 - **Single Function**: `trade_formula_for_matrix(df, formula)`

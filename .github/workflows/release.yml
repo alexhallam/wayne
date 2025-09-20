@@ -101,7 +101,7 @@ jobs:
       run: |
         VERSION="${{ steps.version.outputs.version }}"
         # Extract changelog content for this version
-        awk "/^## \[$VERSION\]/,/^## \[/" CHANGELOG.md | head -n -1 > changelog_content.txt
+        awk "/^## \[$VERSION\]/,/^## \[/" CHANGELOG.md | sed '$d' > changelog_content.txt
         echo "content<<EOF" >> $GITHUB_OUTPUT
         cat changelog_content.txt >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT

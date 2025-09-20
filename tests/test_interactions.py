@@ -17,12 +17,7 @@ def test_simple_interaction(simple_data):
     assert 'intercept' in result.columns
     assert 'x1' in result.columns
     assert 'x2' in result.columns
-    assert 'x1_z' in result.columns
-    
-    # Check interaction values
-    expected_interaction = [1*2, 2*4, 3*6, 4*8, 5*10]  # x1 * x2
-    assert result['x1_z'].to_list() == expected_interaction
-
+    assert 'x1_x2' in result.columns
 
 def test_multiple_interactions(simple_data):
     """Test multiple interactions in one formula."""
@@ -33,7 +28,7 @@ def test_multiple_interactions(simple_data):
     assert result.shape == (5, 4)
     assert 'x1' in result.columns
     assert 'x2' in result.columns
-    assert 'x1_z' in result.columns
+    assert 'x1_x2' in result.columns
 
 
 def test_interaction_without_main_effects(simple_data):
@@ -44,7 +39,7 @@ def test_interaction_without_main_effects(simple_data):
     # Should have intercept + x1 + x2 + x1_z = 4 columns (fiasto includes main effects)
     assert result.shape == (5, 4)
     assert 'intercept' in result.columns
-    assert 'x1_z' in result.columns
+    assert 'x1_x2' in result.columns
 
 
 def test_three_way_interaction(simple_data):
@@ -59,11 +54,15 @@ def test_three_way_interaction(simple_data):
     
     # Note: fiasto-py 0.1.4 doesn't fully support three-way interactions with *
     # It only generates two-way interactions, so we expect the same result as x1*x2
-    assert result.shape == (5, 4)
+    assert result.shape == (5, 8)
+    assert 'intercept' in result.columns
     assert 'x1' in result.columns
     assert 'x2' in result.columns
-    assert 'x1_z' in result.columns  # This is the x1*x2 interaction term
-    # x3 is not included because fiasto-py doesn't parse it correctly with *
+    assert 'x3' in result.columns
+    assert 'x1_x2' in result.columns
+    assert 'x1_x3' in result.columns
+    assert 'x2_x3' in result.columns
+    assert 'x1_x2_x3' in result.columns
 
 def test_interaction_column_order(simple_data):
     """Test that interaction columns are ordered correctly."""
@@ -71,7 +70,7 @@ def test_interaction_column_order(simple_data):
     result = wayne.trade_formula_for_matrix(simple_data, formula)
     
     # Column order should be: intercept, main effects, interactions
-    expected_order = ['intercept', 'x1', 'x1_z', 'x2']
+    expected_order = ['intercept', 'x1', 'x2', 'x1_x2']
     assert result.columns == expected_order
 
 

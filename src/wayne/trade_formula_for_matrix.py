@@ -70,17 +70,43 @@ def trade_formula_for_matrix(df: pl.DataFrame, formula: str) -> pl.DataFrame:
                     degree = transformation.get("parameters", {}).get("degree", 2)
                     generated_columns = transformation.get("generates_columns", [])
                     
-                    # Generate polynomial terms
-                    for i, col_name in enumerate(generated_columns):
-                        if i == 0:
-                            # First polynomial term (linear)
-                            poly_expr = pl.col(var_name)
-                        else:
-                            # Higher order terms (quadratic, cubic, etc.)
-                            poly_expr = pl.col(var_name) ** (i + 1)
+                    # Generate orthogonal polynomial terms using R's exact three-term recurrence relation
+                    # Get the original data for orthogonalization
+                    x_data = df[var_name].to_numpy()
+                    import numpy as np
+                    
+                    n = len(x_data)
+                    P = np.zeros((n, degree + 1))
+                    
+                    # Initialize: P_0 = 1 (constant term)
+                    P[:, 0] = 1.0
+                    
+                    # First polynomial: P_1 = x - mean(x)
+                    if degree > 0:
+                        P[:, 1] = x_data - np.mean(x_data)
+                    
+                    # Three-term recurrence relation for higher order polynomials
+                    for k in range(1, degree):
+                        # Compute alpha_k = sum(x * P_k^2) / sum(P_k^2)
+                        alpha_k = np.dot(x_data, P[:, k]**2) / np.dot(P[:, k], P[:, k])
                         
+                        # Compute beta_k = sum(P_k^2) / sum(P_{k-1}^2)
+                        beta_k = np.dot(P[:, k], P[:, k]) / np.dot(P[:, k-1], P[:, k-1])
+                        
+                        # Three-term recurrence: P_{k+1} = (x - alpha_k) * P_k - beta_k * P_{k-1}
+                        P[:, k + 1] = (x_data - alpha_k) * P[:, k] - beta_k * P[:, k - 1]
+                    
+                    # Normalize each polynomial to have unit variance
+                    for k in range(1, degree + 1):
+                        norm = np.sqrt(np.dot(P[:, k], P[:, k]))
+                        if norm > 0:
+                            P[:, k] = P[:, k] / norm
+                    
+                    # Add the orthogonal polynomial columns (skip the constant term)
+                    for i, col_name in enumerate(generated_columns):
+                        poly_values = P[:, i + 1]  # Skip P[:, 0] which is the constant term
                         result_df = result_df.with_columns(
-                            poly_expr.alias(col_name)
+                            pl.Series(poly_values).alias(col_name)
                         )
     
     # Add intercept if needed (unless formula has "- 1")

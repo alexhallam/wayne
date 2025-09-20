@@ -1,4 +1,4 @@
-## [0.1.5] - 2025-01-09
+## [0.1.5] - 2025-09-20
 
 ### Added
 - **Wayne Speak Fiasto**: Clean interface to fiasto-py parsing functionality
@@ -14,7 +14,7 @@
 - Updated to use fiasto-py 0.1.4 for improved interaction term handling
 - Interaction terms are now processed as separate variables with `InteractionTerm` role
 
-## [0.1.4] - 2025-01-09
+## [0.1.4] - 2025-09-09
 
 ### Changed
 - Interactions and ordering

@@ -100,8 +100,17 @@ uv run python examples/single_function_example.py
 
 The model matrix contains:
 - **Main effects**: Original variables from your formula
-- **Interaction terms**: Generated interaction columns (e.g., `wt_x_hp` for `wt*hp`)
-- **Polynomial terms**: Orthogonal polynomial columns (e.g., `poly_disp_1`, `poly_disp_2`, etc.)
+- **Interaction terms**: Generated interaction columns (e.g., `wt_hp` for `wt*hp`)
+- **Polynomial terms**: Orthogonal polynomial columns (e.g., `disp_poly_1`, `disp_poly_2`, etc.)
+
+## Development & Releases
+
+For developers and maintainers:
+
+- **Release Process**: See [RELEASE.md](RELEASE.md) for how to release new versions to PyPI
+- **Automatic Releases**: Pushing changes to `CHANGELOG.md` triggers automatic PyPI releases
+- **Testing**: Run `uv run -m pytest` to run the test suite
+- **Polynomial Validation**: Run `uv run compare_polynomials.py` to verify R compatibility
 - **Intercept**: Optional intercept column
 
 ## Perfect for Statistical Modeling

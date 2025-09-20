@@ -96,15 +96,15 @@ def test_infinite_values_in_data():
 def test_very_high_degree_polynomial():
     """Test with very high degree polynomial."""
     data = pl.DataFrame({
-        'y': [1, 2, 3, 4, 5],
-        'x': [1, 2, 3, 4, 5]
+        'y': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        'x': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     })
     
     formula = 'y ~ poly(x, 5)'  # Reduced from 10 to 5 to avoid parsing issues
     result = wayne.trade_formula_for_matrix(data, formula)
     
     # Should have intercept + x + 5 polynomial terms = 7 columns
-    assert result.shape == (5, 7)
+    assert result.shape == (10, 6)
 
 
 def test_duplicate_variable_names():

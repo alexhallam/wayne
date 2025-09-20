@@ -4,11 +4,15 @@
 - **Wayne Speak Fiasto**: Clean interface to fiasto-py parsing functionality
   - `wayne.speak_fiasto()` - Parse formulas and get raw fiasto-py results
   - Users can now access fiasto parsing without directly importing fiasto-py
+  - Includes tests for fiasto parsing functionality
+  
 
 ### Fixed
+- **Orthogonal polynomials now match R's `poly()` function exactly**
 - Interaction term naming now matches fiasto-py 0.1.4 output exactly
 - Removed custom `_z` suffix logic that was inconsistent with fiasto-py naming
 - Interaction terms now use proper naming convention (e.g., `wt_hp` instead of `wt_z`)
+- Implemented R's exact three-term recurrence relation algorithm for orthogonal polynomials
 
 ### Changed
 - Updated to use fiasto-py 0.1.4 for improved interaction term handling

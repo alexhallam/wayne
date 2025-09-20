@@ -16,7 +16,7 @@ def test_complex_mtcars_formula(mtcars_data):
     assert 'cyl' in result.columns
     assert 'hp' in result.columns
     assert 'wt' in result.columns
-    assert 'wt_x_hp' in result.columns
+    assert 'wt_hp' in result.columns
     assert 'disp_poly_1' in result.columns
     assert 'disp_poly_2' in result.columns
     assert 'disp_poly_3' in result.columns
@@ -33,7 +33,7 @@ def test_very_complex_formula(sample_data):
     assert 'intercept' in result.columns
     assert 'x1' in result.columns
     assert 'x2' in result.columns
-    assert 'x1_x_x2' in result.columns
+    assert 'x1_x2' in result.columns
     assert 'x3_poly_1' in result.columns
     assert 'x3_poly_2' in result.columns
     assert 'x3_poly_3' in result.columns
@@ -46,9 +46,8 @@ def test_column_order_complex(sample_data):
     
     # Expected order: intercept, main effects, polynomial terms, interactions
     expected_order = [
-        'intercept', 'x1', 'x2', 'x3',  # main effects
-        'x2_poly_1', 'x2_poly_2',  # polynomial terms
-        'x1_x_x3'  # interactions
+        'intercept', 'x1', 'x2_poly_1', 'x2_poly_2', 'x3', # polynomial terms
+        'x1_x3'  # interactions
     ]
     assert result.columns == expected_order
 
